@@ -3,19 +3,19 @@ export class LinkedList {
   #tail = null;
 
   get head() {
-    return this.#head;
+    return this.#head.value;
   }
 
   get tail() {
-    return this.#tail;
+    return this.#tail.value;
   }
 
   size() {
     if (this.#head === null) return 0;
 
-    let totalSize = 0;
+    let totalSize = 1;
     let currentNode = this.#head;
-    while (currentNode !== tail) {
+    while (currentNode !== this.#tail) {
       totalSize++;
       currentNode = currentNode.nextNode;
     }
@@ -25,7 +25,10 @@ export class LinkedList {
 
   append(value) {
     let node = new Node(value);
-    if (this.#head === null) this.#head = node;
+    if (this.#tail === null) this.#head = node;
+    else {
+      this.#tail.nextNode = node;
+    }
     this.#tail = node;
   }
 
