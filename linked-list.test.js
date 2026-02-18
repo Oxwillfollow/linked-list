@@ -129,10 +129,12 @@ test("toString", () => {
   expect(list.toString()).toBe("");
 
   list.append("cat");
-  expect(list.toString()).toBe("cat -> null");
+  expect(list.toString()).toBe("( cat ) -> null");
 
   list.append("dog");
   list.append("giraffe");
   list.append("rat");
-  expect(list.toString()).toBe("cat -> dog -> giraffe -> rat -> null");
+  expect(list.toString()).toBe(
+    "( cat ) -> ( dog ) -> ( giraffe ) -> ( rat ) -> null",
+  );
 });

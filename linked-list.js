@@ -146,11 +146,11 @@ export class LinkedList {
   toString() {
     if (this.#head === null) return "";
 
-    let result = this.#head.value;
+    let result = `( ${this.#head.value} )`;
     let currentNode = this.#head;
 
     while (currentNode.nextNode !== null) {
-      result += ` -> ${currentNode.nextNode.value}`;
+      result += ` -> ( ${currentNode.nextNode.value} )`;
       currentNode = currentNode.nextNode;
     }
 
