@@ -123,3 +123,16 @@ test("findIndex", () => {
   expect(list.findIndex("dog")).toBe(1);
   expect(list.findIndex("cat")).toBe(0);
 });
+
+test("toString", () => {
+  let list = new LinkedList();
+  expect(list.toString()).toBe("");
+
+  list.append("cat");
+  expect(list.toString()).toBe("cat -> null");
+
+  list.append("dog");
+  list.append("giraffe");
+  list.append("rat");
+  expect(list.toString()).toBe("cat -> dog -> giraffe -> rat -> null");
+});

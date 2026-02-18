@@ -15,6 +15,7 @@ export class LinkedList {
 
     let totalSize = 1;
     let currentNode = this.#head;
+
     while (currentNode !== this.#tail) {
       totalSize++;
       currentNode = currentNode.nextNode;
@@ -43,6 +44,7 @@ export class LinkedList {
 
     let currentIndex = 0;
     let currentNode = this.#head;
+
     while (currentIndex < index) {
       if (currentNode.nextNode === null) return undefined; // out of bounds
       currentIndex++;
@@ -117,10 +119,12 @@ export class LinkedList {
     if (this.#head === null) return false;
 
     let currentNode = this.#head;
+
     while (currentNode.value !== value) {
       if (currentNode.nextNode === null) return false;
       currentNode = currentNode.nextNode;
     }
+
     return true;
   }
 
@@ -129,6 +133,7 @@ export class LinkedList {
 
     let currentIndex = 0;
     let currentNode = this.#head;
+
     while (currentNode.value !== value) {
       if (currentNode.nextNode === null) return -1;
       currentIndex++;
@@ -139,7 +144,19 @@ export class LinkedList {
   }
 
   toString() {
-    return `( value ) -> ( value ) -> ( value ) -> null`;
+    if (this.#head === null) return "";
+
+    let result = this.#head.value;
+    let currentNode = this.#head;
+
+    while (currentNode.nextNode !== null) {
+      result += ` -> ${currentNode.nextNode.value}`;
+      currentNode = currentNode.nextNode;
+    }
+
+    result += ` -> null`;
+
+    return result;
   }
 }
 
