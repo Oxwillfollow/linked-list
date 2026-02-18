@@ -110,3 +110,16 @@ test("contains", () => {
   expect(list.contains("dog")).toBe(true);
   expect(list.contains("cat")).toBe(true);
 });
+
+test("findIndex", () => {
+  let list = new LinkedList();
+  expect(list.findIndex("dog")).toBe(-1);
+
+  list.append("cat");
+
+  expect(list.findIndex("dog")).toBe(-1);
+  list.append("dog");
+
+  expect(list.findIndex("dog")).toBe(1);
+  expect(list.findIndex("cat")).toBe(0);
+});
