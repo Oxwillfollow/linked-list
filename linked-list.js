@@ -72,7 +72,21 @@ export class LinkedList {
     });
   }
 
-  removeAt(index) {}
+  removeAt(index) {
+    let node = this.at(index, true);
+
+    if (node === undefined) {
+      if (index === 0) return;
+      else throw RangeError("Index out of bounds!");
+    }
+
+    let prevNode = this.at(index - 1, true);
+
+    if (prevNode !== undefined) prevNode.nextNode = node.nextNode;
+
+    if (this.#head === node) this.#head = node.nextNode;
+    if (this.#tail === node) this.#tail = prevNode;
+  }
 
   removeFirst() {}
 

@@ -40,7 +40,7 @@ test("appending/prepending multiple times", () => {
   expect(list.size()).toBe(5);
 });
 
-test("insert at index, empty list", () => {
+test("insert at index", () => {
   let list = new LinkedList();
 
   function insertSomeThingsOutOfBounds() {
@@ -53,4 +53,23 @@ test("insert at index, empty list", () => {
   expect(list.at(0)).toBe("hello");
   expect(list.at(1)).toBe("bonjour");
   expect(list.at(2)).toBe(undefined);
+});
+
+test("remove at index", () => {
+  let list = new LinkedList();
+
+  function removeOutOfBounds() {
+    list.removeAt(10);
+  }
+
+  expect(removeOutOfBounds).toThrow("out of bounds");
+
+  list.append(1);
+  list.append(2);
+  list.append(3);
+  list.append(4);
+  list.removeAt(2);
+  list.removeAt(0);
+  expect(list.at(0)).toBe(2);
+  expect(list.at(1)).toBe(4);
 });
