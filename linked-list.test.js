@@ -53,6 +53,11 @@ test("insert at index", () => {
   expect(list.at(0)).toBe("hello");
   expect(list.at(1)).toBe("bonjour");
   expect(list.at(2)).toBe(undefined);
+
+  list.insertAt(1, "bye");
+  expect(list.at(0)).toBe("hello");
+  expect(list.at(1)).toBe("bye");
+  expect(list.at(2)).toBe("bonjour");
 });
 
 test("remove at index", () => {

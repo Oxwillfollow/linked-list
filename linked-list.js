@@ -3,11 +3,11 @@ export class LinkedList {
   #tail = null;
 
   get head() {
-    return this.#head.value;
+    return this.#head === null ? undefined : this.#head.value;
   }
 
   get tail() {
-    return this.#tail.value;
+    return this.#tail === null ? undefined : this.#tail.value;
   }
 
   size() {
@@ -55,12 +55,12 @@ export class LinkedList {
   }
 
   insertAt(index, ...values) {
-    let prevNode = this.at(index, true);
+    let prevNode = this.at(index - 1, true);
 
     if (index !== 0 && prevNode === undefined)
       throw RangeError("Index out of bounds!");
 
-    let endNode = this.at(index + values.length, true);
+    let endNode = this.at(index, true);
 
     values.forEach((value, i) => {
       let node = new Node(value);
