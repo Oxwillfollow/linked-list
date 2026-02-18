@@ -73,3 +73,27 @@ test("remove at index", () => {
   expect(list.at(0)).toBe(2);
   expect(list.at(1)).toBe(4);
 });
+
+test("removeFirst", () => {
+  let list = new LinkedList();
+
+  expect(list.removeFirst()).toBe(undefined);
+  list.append("hello");
+  list.append("bye");
+  expect(list.removeFirst()).toBe("hello");
+  expect(list.size()).toBe(1);
+  expect(list.removeFirst()).toBe("bye");
+  expect(list.size()).toBe(0);
+});
+
+test("removeLast", () => {
+  let list = new LinkedList();
+
+  expect(list.removeLast()).toBe(undefined);
+  list.append("hello");
+  list.append("bye");
+  expect(list.removeLast()).toBe("bye");
+  expect(list.size()).toBe(1);
+  expect(list.removeLast()).toBe("hello");
+  expect(list.size()).toBe(0);
+});

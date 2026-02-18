@@ -88,9 +88,30 @@ export class LinkedList {
     if (this.#tail === node) this.#tail = prevNode;
   }
 
-  removeFirst() {}
+  removeFirst() {
+    if (this.#head === null) return undefined;
 
-  removeLast() {}
+    let node = this.#head;
+    this.#head = node.nextNode;
+
+    return node.value;
+  }
+
+  removeLast() {
+    if (this.#head === null) return undefined;
+
+    let node = this.#tail;
+
+    if (this.#head === node) {
+      this.#head = null;
+      this.#tail = null;
+    } else {
+      this.#tail = this.at(this.size() - 2, true);
+      this.#tail.nextNode = null;
+    }
+
+    return node.value;
+  }
 
   contains(value) {}
 
