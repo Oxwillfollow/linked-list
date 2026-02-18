@@ -39,3 +39,18 @@ test("appending/prepending multiple times", () => {
   expect(list.tail).toBe(4);
   expect(list.size()).toBe(5);
 });
+
+test("insert at index, empty list", () => {
+  let list = new LinkedList();
+
+  function insertSomeThingsOutOfBounds() {
+    list.insertAt(4, "hello", "bonjour");
+  }
+
+  expect(insertSomeThingsOutOfBounds).toThrow("out of bounds");
+
+  list.insertAt(0, "hello", "bonjour");
+  expect(list.at(0)).toBe("hello");
+  expect(list.at(1)).toBe("bonjour");
+  expect(list.at(2)).toBe(undefined);
+});

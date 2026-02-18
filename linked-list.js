@@ -38,20 +38,39 @@ export class LinkedList {
     this.#head = node;
   }
 
-  at(index) {
-    if (this.#head === null) return undefined;
+  at(index, returnNode = false) {
+    if (this.#head === null) return undefined; // list is empty
 
     let currentIndex = 0;
     let currentNode = this.#head;
     while (currentIndex < index) {
+      if (currentNode.nextNode === null) return undefined; // out of bounds
       currentIndex++;
       currentNode = currentNode.nextNode;
     }
 
-    return currentNode;
+    return returnNode ? currentNode : currentNode.value;
   }
 
-  insertAt(index, ...values) {}
+  insertAt(index, ...values) {
+    let prevNode = this.at(index, true);
+
+    if (index !== 0 && prevNode === undefined)
+      throw RangeError("Index out of bounds!");
+
+    let endNode = this.at(index + values.length, true);
+
+    values.forEach((value, i) => {
+      let node = new Node(value);
+      if (prevNode !== undefined) prevNode.nextNode = node;
+      else this.#head = node;
+      if (i === values.length - 1) {
+        if (endNode !== undefined) node.nextNode = endNode;
+        else this.#tail = node;
+      }
+      prevNode = node;
+    });
+  }
 
   removeAt(index) {}
 
