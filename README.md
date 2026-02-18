@@ -2,7 +2,7 @@
 
 Implementation of [Linked List](https://en.wikipedia.org/wiki/Linked_list) in Javascript.
 
-## `Node` class :
+## `Node` class
 
 Properties:
 
@@ -11,7 +11,7 @@ Properties:
 
 `Constructor(value, nextNode=null)`: assign value to the instantiated node, optional: assign the nextNode (defaults to null)
 
-## `LinkedList` class:
+## `LinkedList` class
 
 Properties:
 
