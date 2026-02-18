@@ -97,3 +97,16 @@ test("removeLast", () => {
   expect(list.removeLast()).toBe("hello");
   expect(list.size()).toBe(0);
 });
+
+test("contains", () => {
+  let list = new LinkedList();
+  expect(list.contains("dog")).toBe(false);
+
+  list.append("cat");
+
+  expect(list.contains("dog")).toBe(false);
+  list.append("dog");
+
+  expect(list.contains("dog")).toBe(true);
+  expect(list.contains("cat")).toBe(true);
+});
