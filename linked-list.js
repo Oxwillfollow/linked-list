@@ -1,3 +1,13 @@
+class Node {
+  value = null;
+  nextNode = null;
+
+  constructor(value = null, nextNode = null) {
+    this.value = value;
+    this.nextNode = nextNode;
+  }
+}
+
 export class LinkedList {
   #head = null;
   #tail = null;
@@ -157,15 +167,5 @@ export class LinkedList {
     result += ` -> null`;
 
     return result;
-  }
-}
-
-class Node {
-  value = null;
-  nextNode = null;
-
-  constructor(value = null, nextNode = null) {
-    this.value = value;
-    this.nextNode = nextNode;
   }
 }
