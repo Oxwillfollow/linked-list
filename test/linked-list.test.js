@@ -1,4 +1,4 @@
-import { LinkedList } from "./linked-list";
+import { LinkedList } from "../linked-list";
 
 test("at non-existant index", () => {
   let list = new LinkedList();

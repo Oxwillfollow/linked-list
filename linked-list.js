@@ -104,7 +104,13 @@ export class LinkedList {
     if (this.#head === null) return undefined;
 
     let node = this.#head;
-    this.#head = node.nextNode;
+
+    if (this.#head === this.#tail) {
+      this.#head = null;
+      this.#tail = null;
+    } else {
+      this.#head = node.nextNode;
+    }
 
     return node.value;
   }
